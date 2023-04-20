@@ -1,5 +1,6 @@
 import logging
 
+import aiohttp
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
@@ -18,3 +19,4 @@ else:
     storage = MemoryStorage()
 bot = Bot(token=config.bot.token, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot=bot, storage=storage)
+cli = aiohttp.ClientSession()
